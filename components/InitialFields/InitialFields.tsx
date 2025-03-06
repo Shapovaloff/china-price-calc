@@ -20,6 +20,7 @@ function InitialFields({ fields, onChange }: InitialFieldsProps) {
               label={label}
               defaultValue={Number(fields[key])}
               name={key}
+              maxValue={9_999}
               onChangeInput={(name, value) =>
                 onChange(name as ProductFieldKey, Number(value))
               }

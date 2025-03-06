@@ -1,20 +1,32 @@
 @use "styles/text-mixins" as t;
+@use "styles/mixins" as m;
 
 .result-block {
   width: 100%;
   background-color: var(--red-600);
   color: var(--white);
-  box-shadow: var(--shadow-2xl);
+  box-shadow: var(--shadow-xl);
   display: flex;
   flex-direction: column;
   padding: 24rem;
   border-radius: 16rem;
   gap: 16rem;
 
-  @media screen and (max-width: 1023px) {
+  @include m.max-small-desktop {
+    padding: 20rem;
+    border-radius: 12rem;
+    gap: 12rem;
+  }
+
+  @include m.max-tablet {
+    padding: 24rem 16rem;
+    gap: 8rem;
+  }
+
+  @include m.max-mobile {
+    box-shadow: var(--shadow-2xl);
     border-radius: 16rem 16rem 0 0;
     gap: 2rem;
-    padding: 16rem;
     padding-bottom: 32rem;
   }
 
@@ -27,7 +39,11 @@
   &__total-label {
     @include t.text-2xl;
 
-    @media screen and (max-width: 1023px) {
+    @include m.max-tablet {
+      @include t.text-xl;
+    }
+
+    @include m.max-mobile {
       @include t.text-xl;
     }
   }
@@ -36,7 +52,12 @@
     @include t.text-4xl;
     font-weight: 600;
 
-    @media screen and (max-width: 1023px) {
+    @include m.max-tablet {
+      font-size: 26rem;
+      font-weight: 500;
+    }
+
+    @include m.max-mobile {
       @include t.text-3xl;
     }
   }
@@ -47,7 +68,16 @@
     gap: 8rem;
     margin-top: 16rem;
 
-    @media screen and (max-width: 1023px) {
+    @include m.max-small-desktop {
+      gap: 6rem;
+      margin-top: 12rem;
+    }
+
+    @include m.max-tablet {
+      gap: 12rem 6rem;
+    }
+
+    @include m.max-mobile {
       gap: 4rem;
       margin-top: 8rem;
     }
@@ -63,7 +93,11 @@
     @include t.text-base;
     color: rgba(255, 255, 255, 0.7);
 
-    @media screen and (max-width: 1023px) {
+    @include m.max-tablet {
+      @include t.text-xs;
+    }
+
+    @include m.max-mobile {
       @include t.text-xs;
     }
   }
@@ -72,7 +106,11 @@
     @include t.text-lg;
     font-weight: 500;
 
-    @media screen and (max-width: 1023px) {
+    @include m.max-tablet {
+      @include t.text-base;
+    }
+
+    @include m.max-mobile {
       @include t.text-sm;
     }
   }

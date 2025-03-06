@@ -22,9 +22,8 @@ function InputWithMask(props: InputWithMaskProps) {
       radix: ',',
       thousandsSeparator: ' ',
       min: 0,
-      max: maxValue || 1000,
+      max: maxValue || 9_999,
       mapToRadix: ['.'],
-      autofix: true,
     },
     {
       defaultUnmaskedValue: defaultValue?.toString(),

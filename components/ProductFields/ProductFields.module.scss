@@ -1,3 +1,5 @@
+@use "styles/mixins" as m;
+
 .product-fields {
   padding-top: 20rem;
   border-top: 1rem solid var(--gray-300);
@@ -6,14 +8,27 @@
   width: 100%;
   gap: 12rem;
 
-  @media screen and (max-width: 1023px) {
+  @include m.max-small-desktop {
+    gap: 10rem;
+    padding-top: 16rem;
+  }
+
+  @include m.max-tablet {
+    padding-top: 14rem;
+  }
+
+  @include m.max-mobile {
     gap: 8rem;
   }
 
   &__switch {
     padding-top: 12rem;
 
-    @media screen and (max-width: 1023px) {
+    @include m.max-tablet {
+      padding-top: 10rem;
+    }
+
+    @include m.max-mobile {
       padding-top: 8rem;
     }
   }

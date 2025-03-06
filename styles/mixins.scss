@@ -15,3 +15,21 @@
     }
   }
 }
+
+@mixin max-small-desktop() {
+  @media screen and (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin max-tablet() {
+  @media screen and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin max-mobile() {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}

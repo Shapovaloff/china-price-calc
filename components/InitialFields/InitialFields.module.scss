@@ -1,9 +1,15 @@
+@use "styles/mixins" as m;
+
 .initial-fields {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12rem;
 
-  @media screen and (max-width: 1023px) {
+  @include m.max-small-desktop {
+    gap: 10rem;
+  }
+
+  @include m.max-mobile {
     gap: 8rem;
   }
 }

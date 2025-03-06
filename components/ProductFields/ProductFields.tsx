@@ -19,30 +19,30 @@ function ProductFields({
   );
 
   return (
-    <div className={styles['product-fields']}>
+    <ul className={styles['product-fields']}>
       {fieldKeys.map((key) => {
         const { label, iconName } = InitialFieldsNames[key];
         return (
-          <div key={key}>
+          <li key={key}>
             <InputWithMask
               label={label}
               name={key}
               onChangeInput={(_, value) => onChange(key, Number(value))}
-              maxValue={1_000_000}
+              maxValue={999_999}
               iconName={iconName}
             />
-          </div>
+          </li>
         );
       })}
-      <div className={styles['product-fields__switch']}>
+      <li className={styles['product-fields__switch']}>
         <Switch
           id="isCostPack"
           checked={fields.isCostPack}
           label={InitialFieldsNames.isCostPack.label}
           onCheckedChange={onChangeCostPack}
         />
-      </div>
-    </div>
+      </li>
+    </ul>
   );
 }
 

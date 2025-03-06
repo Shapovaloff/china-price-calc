@@ -23,10 +23,22 @@
       opacity var(--tr-time) ease,
       box-shadow var(--tr-time) ease;
 
-    @media screen and (max-width: 1023px) {
+    @include m.max-small-desktop {
+      @include t.text-lg;
+      padding: 23rem 20rem 3rem 36rem;
+      min-height: 56rem;
+    }
+
+    @include m.max-tablet {
+      @include t.text-base;
+      padding: 21rem 20rem 2rem 32rem;
+      min-height: 52rem;
+    }
+
+    @include m.max-mobile {
       @include t.text-base;
       border-radius: 8rem;
-      padding: 18rem 16rem 3rem 24rem;
+      padding: 18rem 16rem 3rem 28rem;
       min-height: 48rem;
     }
 
@@ -56,7 +68,7 @@
         color: var(--red-400);
         transform: translate(-5%, -60%) scale(0.9);
 
-        @media screen and (max-width: 1023px) {
+        @include m.max-mobile {
           transform: translate(-5%, -75%) scale(0.9);
         }
       }
@@ -75,7 +87,7 @@
     &.is-active ~ .input-with-mask__label {
       transform: translate(-5%, -60%) scale(0.9);
 
-      @media screen and (max-width: 1023px) {
+      @include m.max-mobile {
         transform: translate(-5%, -75%) scale(0.9);
       }
     }
@@ -85,16 +97,24 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 12rem;
+    left: 10rem;
     width: 20rem;
     color: var(--gray-500);
     transition:
       color var(--tr-time) ease,
       opacity var(--tr-time) ease;
 
-    @media screen and (max-width: 1023px) {
-      left: 8rem;
-      width: 12rem;
+    @include m.max-small-desktop {
+      width: 18rem;
+    }
+
+    @include m.max-tablet {
+      width: 16rem;
+      left: 9rem;
+    }
+
+    @include m.max-mobile {
+      width: 14rem;
     }
   }
 
@@ -103,17 +123,27 @@
     position: absolute;
     pointer-events: none;
     top: 18rem;
-    left: 40rem;
+    left: 41rem;
     color: var(--gray-500);
     transition:
       color var(--tr-time) ease,
       opacity var(--tr-time) ease,
       transform var(--tr-time) ease;
 
-    @media screen and (max-width: 1023px) {
+    @include m.max-small-desktop {
+      @include t.text-sm;
+      left: 37rem;
+    }
+
+    @include m.max-tablet {
+      left: 33rem;
+      @include t.text-xs;
+    }
+
+    @include m.max-mobile {
       @include t.text-xs;
       top: 16rem;
-      left: 25rem;
+      left: 29rem;
     }
   }
 }

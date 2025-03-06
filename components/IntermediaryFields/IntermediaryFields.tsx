@@ -28,7 +28,7 @@ function IntermediaryFields({
           name="commissionPercent"
           onChangeInput={(_, value) => onCommissionChange(+value)}
           defaultValue={commissionPercent}
-          maxValue={10000}
+          maxValue={999}
           disabled={!isIntermediary}
           iconName="percent"
         />

@@ -1,3 +1,5 @@
+@use "styles/mixins" as m;
+
 .intermediary-fields {
   padding-top: 20rem;
   border-top: 1rem solid var(--gray-300);
@@ -5,7 +7,11 @@
   flex-direction: column;
   gap: 20rem;
 
-  @media screen and (max-width: 1023px) {
+  @include m.max-small-desktop {
+    gap: 18rem;
+  }
+
+  @include m.max-mobile {
     gap: 16rem;
   }
 
@@ -15,7 +21,11 @@
     gap: 20rem;
     align-items: flex-start;
 
-    @media screen and (max-width: 1023px) {
+    @include m.max-small-desktop {
+      gap: 18rem;
+    }
+
+    @include m.max-mobile {
       gap: 16rem;
     }
   }
