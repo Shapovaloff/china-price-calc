@@ -1,0 +1,17 @@
+@mixin visually-hidden {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  margin: -1rem;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@mixin hover() {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

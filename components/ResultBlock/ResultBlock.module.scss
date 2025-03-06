@@ -1,0 +1,79 @@
+@use "styles/text-mixins" as t;
+
+.result-block {
+  width: 100%;
+  background-color: var(--red-600);
+  color: var(--white);
+  box-shadow: var(--shadow-2xl);
+  display: flex;
+  flex-direction: column;
+  padding: 24rem;
+  border-radius: 16rem;
+  gap: 16rem;
+
+  @media screen and (max-width: 1023px) {
+    border-radius: 16rem 16rem 0 0;
+    gap: 2rem;
+    padding: 16rem;
+    padding-bottom: 32rem;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__total-label {
+    @include t.text-2xl;
+
+    @media screen and (max-width: 1023px) {
+      @include t.text-xl;
+    }
+  }
+
+  &__total-result {
+    @include t.text-4xl;
+    font-weight: 600;
+
+    @media screen and (max-width: 1023px) {
+      @include t.text-3xl;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8rem;
+    margin-top: 16rem;
+
+    @media screen and (max-width: 1023px) {
+      gap: 4rem;
+      margin-top: 8rem;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  &__item-label {
+    @include t.text-base;
+    color: rgba(255, 255, 255, 0.7);
+
+    @media screen and (max-width: 1023px) {
+      @include t.text-xs;
+    }
+  }
+
+  &__item-value {
+    @include t.text-lg;
+    font-weight: 500;
+
+    @media screen and (max-width: 1023px) {
+      @include t.text-sm;
+    }
+  }
+}

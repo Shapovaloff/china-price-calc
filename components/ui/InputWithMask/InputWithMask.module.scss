@@ -1,0 +1,119 @@
+@use "styles/mixins" as m;
+@use "styles/text-mixins" as t;
+
+.input-with-mask {
+  position: relative;
+  width: 100%;
+  display: flex;
+
+  &__input {
+    @include t.text-xl;
+    width: 100%;
+    max-width: 100%;
+    background-color: var(--gray-100);
+    border-radius: 12rem;
+    outline: none;
+    padding: 26rem 24rem 4rem 40rem;
+    box-sizing: border-box;
+    border: 1rem solid transparent;
+    min-height: 60rem;
+    transition:
+      border-color var(--tr-time) ease,
+      background-color var(--tr-time) ease,
+      opacity var(--tr-time) ease,
+      box-shadow var(--tr-time) ease;
+
+    @media screen and (max-width: 1023px) {
+      @include t.text-base;
+      border-radius: 8rem;
+      padding: 18rem 16rem 3rem 24rem;
+      min-height: 48rem;
+    }
+
+    @include m.hover {
+      &:not(:disabled) {
+        border-color: var(--gray-300);
+        background-color: transparent;
+      }
+    }
+
+    &:focus {
+      background-color: transparent;
+      border-color: var(--red-300);
+      box-shadow: var(--shadow-red);
+
+      @include m.hover {
+        &:not(:disabled) {
+          border-color: var(--red-300);
+        }
+      }
+
+      & ~ .input-with-mask__icon {
+        color: var(--red-400);
+      }
+
+      & ~ .input-with-mask__label {
+        color: var(--red-400);
+        transform: translate(-5%, -60%) scale(0.9);
+
+        @media screen and (max-width: 1023px) {
+          transform: translate(-5%, -75%) scale(0.9);
+        }
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.3;
+
+      & ~ .input-with-mask__icon,
+      & ~ .input-with-mask__label {
+        opacity: 0.3;
+      }
+    }
+
+    &.is-active ~ .input-with-mask__label {
+      transform: translate(-5%, -60%) scale(0.9);
+
+      @media screen and (max-width: 1023px) {
+        transform: translate(-5%, -75%) scale(0.9);
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12rem;
+    width: 20rem;
+    color: var(--gray-500);
+    transition:
+      color var(--tr-time) ease,
+      opacity var(--tr-time) ease;
+
+    @media screen and (max-width: 1023px) {
+      left: 8rem;
+      width: 12rem;
+    }
+  }
+
+  &__label {
+    @include t.text-base;
+    position: absolute;
+    pointer-events: none;
+    top: 18rem;
+    left: 40rem;
+    color: var(--gray-500);
+    transition:
+      color var(--tr-time) ease,
+      opacity var(--tr-time) ease,
+      transform var(--tr-time) ease;
+
+    @media screen and (max-width: 1023px) {
+      @include t.text-xs;
+      top: 16rem;
+      left: 25rem;
+    }
+  }
+}

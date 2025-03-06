@@ -1,0 +1,9 @@
+.initial-fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12rem;
+
+  @media screen and (max-width: 1023px) {
+    gap: 8rem;
+  }
+}

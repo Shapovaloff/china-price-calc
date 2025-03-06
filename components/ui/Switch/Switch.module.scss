@@ -1,0 +1,84 @@
+@use "styles/mixins" as m;
+@use "styles/text-mixins" as t;
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  min-height: 20rem;
+
+  &__input {
+    @include m.visually-hidden;
+  }
+
+  &__label {
+    @include t.text-base;
+    color: var(--gray-900);
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    align-items: center;
+    display: flex;
+    gap: 8rem;
+
+    @media screen and (max-width: 1023px) {
+      @include t.text-sm;
+    }
+
+    @include m.hover() {
+      & .switch__slider {
+        background-color: var(--red-200);
+      }
+    }
+  }
+
+  &__slider {
+    position: relative;
+    width: 33rem;
+    height: 20rem;
+    border-radius: 10rem;
+    background-color: var(--gray-100);
+    transition: background-color 0.3s;
+    flex-shrink: 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 2rem;
+      left: 2rem;
+      width: 16rem;
+      height: 16rem;
+      background-color: var(--white);
+      border-radius: 50%;
+      transition: transform 0.3s;
+      box-shadow: 0 0 6rem 0 rgba(0, 0, 0, 0.251);
+    }
+  }
+
+  &__input:checked ~ .switch__label .switch__slider {
+    background-color: var(--red-500);
+
+    &::before {
+      transform: translateX(13rem);
+    }
+  }
+
+  &__input:disabled ~ .switch__label {
+    opacity: 0.3;
+    cursor: not-allowed;
+
+    @include m.hover() {
+      & .switch__slider {
+        background-color: var(--gray-100);
+      }
+    }
+  }
+
+  &__input:checked:disabled ~ .switch__label {
+    @include m.hover() {
+      & .switch__slider {
+        background-color: var(--red-500);
+      }
+    }
+  }
+}
