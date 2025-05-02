@@ -74,6 +74,9 @@ body {
 
     /* all */
     --tr-time: 0.3s;
+
+    /* rem */
+    --base-font-size: 1px;
   }
 
   .dark {
@@ -104,34 +107,34 @@ body {
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+@media (max-width: 1919px) {
+  :root {
+    --base-font-size: calc(1vw / 19.19);
   }
-  body {
-    @apply bg-background text-foreground;
+}
+@media (max-width: 1600px) {
+  :root {
+    --base-font-size: calc(1vw / 14.39);
+  }
+}
+@media (max-width: 1023px) {
+  :root {
+    --base-font-size: calc(1vw / 7.67);
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --base-font-size: calc(1vw / 3.75);
   }
 }
 
 html {
-  @media screen and (max-width: 1919px) {
-    font-size: calc(1vw / 19.2);
-  }
-
-  @media screen and (max-width: 1600px) {
-    font-size: calc(1vw / 14.4);
-  }
-
-  @media screen and (max-width: 1023px) {
-    font-size: calc(1vw / 7.68);
-  }
-
-  @media screen and (max-width: 767px) {
-    font-size: calc(1vw / 3.75);
-  }
-
   font-family: Manrope, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 1px;
+  font-size: var(--base-font-size);
+}
+
+body {
+  font-size: 16rem;
 }

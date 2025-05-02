@@ -54,7 +54,7 @@ $image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800
     background-position: center;
 
     @include m.max-tablet {
-      padding: 40rem 20rem 70rem;
+      padding: 30rem 20rem 60rem;
       background-color: var(--gray-100);
       background-image: $image;
       display: flex;
@@ -64,9 +64,27 @@ $image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800
     }
 
     @include m.max-mobile {
-      padding: 40rem 16rem 60rem;
+      padding: 20rem 16rem 40rem;
       background-color: var(--gray-100);
       background-image: $image;
+      align-items: flex-start;
+    }
+  }
+
+  &__top-block {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    gap: 16rem;
+
+    @include m.max-tablet {
+      gap: 12rem;
+    }
+
+    @include m.max-mobile {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 
@@ -88,6 +106,24 @@ $image: url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800
 
     @include m.max-mobile {
       @include t.text-3xl;
+    }
+  }
+
+  &__btn {
+    @include m.reset-btn;
+    background-color: var(--red-500);
+    padding: 8rem 12rem;
+    border-radius: 8rem;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    @include t.text-base;
+
+    @include m.max-mobile {
+      @include t.text-sm;
+      gap: 2rem;
+      padding: 6rem 8rem;
     }
   }
 
