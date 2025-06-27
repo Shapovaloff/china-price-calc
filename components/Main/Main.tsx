@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useCallback } from 'react';
+import { useMemo, useCallback, useState, useLayoutEffect } from 'react';
 import { CalculationState } from './Main.interface';
 import { calculateTotalCost } from '@/utils/calculateTotalCost';
 import InitialFields from '../InitialFields/InitialFields';
@@ -9,6 +9,7 @@ import IntermediaryFields from '../IntermediaryFields/IntermediaryFields';
 import ResultBlock from '../ResultBlock/ResultBlock';
 import styles from './Main.module.scss';
 import { usePersistedState } from '@/hooks/usePersistedState';
+import Auth from '../Auth/Auth';
 
 export default function Main() {
   const [state, setState] = usePersistedState({
@@ -25,14 +26,28 @@ export default function Main() {
     calculationType: 'onlyProduct',
   });
 
+  const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
+
+  useLayoutEffect(() => {
+    const saved = localStorage.getItem('chinaCalcPassword');
+    setIsAuthorized(!!saved);
+    setIsAuthChecked(true);
+  }, []);
+
   const handleChange = useCallback(
     <K extends keyof CalculationState>(name: K, value: CalculationState[K]) => {
       setState((prev) => ({ ...prev, [name]: value }));
     },
-    []
+    [setState]
   );
 
   const resultData = useMemo(() => calculateTotalCost(state), [state]);
+
+  if (!isAuthChecked) return null;
+  if (!isAuthorized) {
+    return <Auth onAuthSuccess={() => setIsAuthorized(true)} />;
+  }
 
   return (
     <div className={styles.main}>

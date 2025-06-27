@@ -1,0 +1,37 @@
+@use "styles/mixins" as m;
+@use "styles/text-mixins" as t;
+
+.button {
+  @include t.text-lg;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 24rem;
+  border: none;
+  border-radius: 8rem;
+  background-color: var(--red-500);
+  color: var(--white);
+  cursor: pointer;
+  transition:
+    background var(--tr-time),
+    color var(--tr-time),
+    opacity var(--tr-time);
+
+  @include m.max-mobile {
+    @include t.text-base;
+    padding: 8rem 16rem;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--red-600);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--red-700);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}

@@ -4,7 +4,8 @@ export type IconType =
   | 'yuan'
   | 'weight'
   | 'amount'
-  | 'percent';
+  | 'percent'
+  | 'lock';
 
 export interface IconProps {
   type: IconType;

@@ -2,6 +2,7 @@ import { PiCurrencyRubBold, PiCurrencyDollarBold } from 'react-icons/pi';
 import { MdOutlineCurrencyYuan, MdOutlinePercent } from 'react-icons/md';
 import { TbWeight } from 'react-icons/tb';
 import { BsBoxes } from 'react-icons/bs';
+import { TbLockPassword } from 'react-icons/tb';
 import { IconProps } from './Icon.interface';
 
 const iconMap = {
@@ -11,6 +12,7 @@ const iconMap = {
   weight: TbWeight,
   amount: BsBoxes,
   percent: MdOutlinePercent,
+  lock: TbLockPassword,
 };
 
 const Icon = ({ type, size = 24, className }: IconProps) => {
