@@ -1,9 +1,9 @@
 import React, { useState, useLayoutEffect } from 'react';
-import InputWithMask from '../ui/InputWithMask/InputWithMask';
 import Button from '../ui/Button/Button';
 import styles from './Auth.module.scss';
 import { AuthProps } from './Auth.interface';
 import sha256 from 'crypto-js/sha256';
+import InputText from '../ui/InputText/InputText';
 
 const LIST = [
   'f240c4922b831c7bb5f23ff2cec13036242f53e64a4ed70d985fc4f611cc28f0',
@@ -56,11 +56,10 @@ function Auth({ onAuthSuccess }: AuthProps) {
         <form onSubmit={handleAuth} className={styles['auth__form']}>
           <p className={styles['auth__title']}>Вход в калькулятор</p>
           <div className={styles['auth__input-block']}>
-            <InputWithMask
+            <InputText
               label="Введите пароль"
               name="password"
               onChangeInput={handlePasswordChange}
-              isText
               iconName="lock"
               type="password"
               value={password}
